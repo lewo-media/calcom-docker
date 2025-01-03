@@ -1,14 +1,4 @@
-# Use postgres/example user/password credentials
 version: '3.8'
-
-volumes:
-  database-data:
-
-networks:
-  stack:
-    name: stack
-    external: false
-
 services:
   calcom:
     image: calcom.docker.scarf.sh/calcom/cal.com
@@ -24,7 +14,6 @@ services:
         CALENDSO_ENCRYPTION_KEY: ${CALENDSO_ENCRYPTION_KEY}
         DATABASE_URL: ${DATABASE_URL}
         DATABASE_DIRECT_URL: ${DATABASE_URL}
-      network: stack
     restart: always
     networks:
       - stack
